@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+#define ll long long
+
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,l,r;
+        cin>>n>>l>>r;
+        int ans=INT_MAX;
+        int base=0;
+        for(int i=l;i<=r;i++){
+            ll p=n;
+            int sum=0;
+            while(p){
+                sum+=p%i;
+                p=p/i;
+            }
+
+            if(sum<ans){
+                ans=sum;
+                base=i;
+            }
+        }
+
+        cout<<base<<endl;
+
+        
+
+    }
+}

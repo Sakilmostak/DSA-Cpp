@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int n,k,charged;
+    cin>>n>>k;
+    int bill[n];
+    for(int i=0;i<n;i++){
+        cin>>*(bill+i);
+    }
+    cin>>charged;
+    int share=0;
+    for(int i=0;i<n;i++){
+        if(i==k){
+            continue;
+        }
+        else{
+            share+=*(bill+i);
+        }
+    }
+    share=share/2;
+    
+    if(share==charged){
+        cout<<"Bon Appetit"<<endl;
+    }
+    else{
+        cout<<charged-share<<endl;
+    }
+}

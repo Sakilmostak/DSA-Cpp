@@ -1,0 +1,50 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#include<climits>
+
+using namespace std;
+
+int kadane(int a[],int n){
+     int csum=0;
+    int maxy=INT_MIN;
+
+   for(int i=0;i<n;i++){
+       csum+=a[i];
+       if(csum<0){
+           csum=0;
+       }
+       maxy=max(maxy,csum);
+   }
+   return maxy;
+}
+
+int main()
+{
+    int n,f;
+    cin>>n>>f;
+
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    
+    for(int i=0;i<n;i++){
+        int sum=0;
+        sum=f-a[i];
+        for(int j=0;j<n;j++){
+            
+            int tempsum=sum-a[j];
+            if(i==j){
+                continue;
+            }
+            else if(tempsum==0){
+                cout<<i<<j<<endl;
+            }
+            tempsum=0;
+        }
+
+    }
+
+    
+   return 0;
+}

@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+    int a,b;
+    scanf("%d %d",&a,&b);
+    int xor;
+    int and=1;
+    while(and!=0){
+        xor=a ^ b;
+        and=a & b;
+        a=xor;
+        b=and<<1;
+    }
+
+    printf("%d",a);
+    return 0;
+}

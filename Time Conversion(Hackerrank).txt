@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+ * Complete the timeConversion function below.
+ */
+string timeConversion(string s) {
+    int fir= s[0]-'0';
+   int sec= s[1]-'0';
+   
+   if(fir==1 && sec==2){
+       if(s[8]=='A'){
+           fir=0;
+           sec=0;
+       }
+   }
+   else if(s[8]=='P' && sec<=7 && fir==0){
+       fir=1;
+       sec=sec+2;
+   }
+   else if(s[8]=='P' && sec>=8 && sec<10){
+       fir=2;
+       sec=sec-8;
+   }
+   else if(s[8]=='P' && sec>=0 && fir==1){
+       fir=2;
+       sec=sec+2;
+   }
+   
+   s[0]='0'+fir;
+   s[1]='0'+sec;
+   string time = s.substr(0,8);
+   return time; 
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}

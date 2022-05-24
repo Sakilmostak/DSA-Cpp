@@ -1,0 +1,66 @@
+#include<iostream>
+#include<algorithm>
+#include<string>
+
+using namespace std;
+
+void sort(int ar[], int n){
+    for(int i=0;i<n-1;i++){
+        for(int j=i+1;j<n;j++){
+            if(ar[i]>ar[j]){
+                int temp=ar[i];
+                ar[i]=ar[j];
+                ar[j]=temp;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<ar[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void bubblesort(int ar[], int n){
+    for(int i=1;i<n;i++){
+        for(int j=0;j<n-i;j++){
+            if(ar[j]>ar[j+1]){
+                int temp=ar[j];
+                ar[j]=ar[j+1];
+                ar[j+1]=temp;
+            }
+        }
+    }
+
+    for(int i=0;i<n;i++){
+        cout<<ar[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void insertsort(int ar[], int n){
+    for(int i=1;i<n;i++){
+        int current=ar[i];
+        int j=i-1;
+        while(ar[j]>current && j>=0){
+            ar[j+1]=ar[j];
+            j--;
+        }
+        ar[j+1]=current;
+    }
+
+    for(int i=0;i<n;i++){
+        cout<<ar[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int main(){
+    int n;
+    cin>>n;
+   int arr[n];
+   for(int i=0;i<n;i++){
+       cin>>arr[i];
+   }
+   insertsort(arr,n);
+   return 0;
+}

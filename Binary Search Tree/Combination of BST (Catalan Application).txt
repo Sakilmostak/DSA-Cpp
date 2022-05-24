@@ -1,0 +1,68 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+struct node{
+	int data;
+	node* right;
+	node* left;
+
+	node(int val){
+		data=val;
+		right=NULL;
+		left=NULL;
+	}
+};
+
+vector<node*> combinationTree(int start, int end){
+	vector<node*> trees;
+	if(start>end){
+		trees.push_back(NULL);
+		return trees;
+	}
+
+	for(int i=start;i<=end;i++){
+		vector<node*> leftSubtree= combinationTree(start, i-1);
+		vector<node*> rightSubtree= combinationTree(i+1, end);
+
+		for(int j=0;j<leftSubtree.size();j++){
+
+			node* left= leftSubtree[j];
+
+			for(int k=0;k<rightSubtree.size();k++){
+
+				node* right= rightSubtree[k];
+
+				node* currnode= new node(i);
+				currnode->left= left;
+				currnode->right= right;
+				trees.push_back(currnode);
+
+			}
+		}
+	}
+
+	return trees;
+}
+
+void preorderPrint(node* root){
+	if(root==NULL){
+		return;
+	}
+
+	cout<<root->data<<" ";
+	preorderPrint(root->left);
+	preorderPrint(root->right);
+}
+
+int main(){
+	vector<node*> totaltrees= combinationTree(1,3);
+	for(int i=0;i<totaltrees.size();i++){
+		cout<<i+1<<" : ";
+		preorderPrint(totaltrees[i]);
+		cout<<endl;
+	}
+
+	return 0;
+}

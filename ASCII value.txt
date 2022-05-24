@@ -1,0 +1,17 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+
+ char n;
+ cout<<"Put your character:";
+ cin>>n;
+ int f = n;
+
+ cout<<"The ASCII value of the character is "<<f<<endl;
+ 
+ 
+ return 0;  
+}

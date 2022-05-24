@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	int n; // no of vertices
+	int m; // no of edges
+
+	cin>>n>>m;
+
+	vector<vector<int>> adjMat(n, vector<int> (n, 0));
+
+	for(int i=0;i<m;i++){
+		int from, to;
+		cin>>from>>to;
+		adjMat[from][to]= 1;
+	}
+
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			cout<<adjMat[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+
+	return 0;
+}

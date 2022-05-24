@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+string dayOfProgrammer(int year){
+    string s;
+    if(year==1918){
+        s="26.9."+to_string(year);
+        return s;
+    }
+    else if(year%4==0){
+        if(year<1918){
+            s="12.9."+to_string(year);
+            return s;
+        }
+        if(year>1918){
+            if(year%100!=0){
+                s="12.9."+to_string(year);
+            return s;
+            }
+            else if(year%400==0){
+                s="12.9."+to_string(year);
+            return s;
+            }
+            
+        }
+    }
+    s="13.9."+to_string(year);
+            return s;
+}
+
+
+int main(){
+    int n;
+    cin>>n;
+    sting ans=dayOfProgrammer(n);
+    cout<<ans<<endl;
+
+    return 0;
+}

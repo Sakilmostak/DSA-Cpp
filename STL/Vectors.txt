@@ -1,0 +1,58 @@
+#include<iostream>
+#include<algorithm>
+#include<string>
+#include<vector>
+using namespace std;
+
+int main(){
+
+    vector<float> avb;  // creat a vector of name avb
+    avb.push_back(38.343);   // add value to the first index of avb
+    avb.push_back(44353.8786);   // add value to the second index
+    avb.push_back(5879.3535);  // add vaelue to the third index
+    for(int i=0;i<avb.size();i++){  // print all the element of avb
+        cout<<avb[i]<<" ";
+    }
+    cout<<endl;
+
+    vector<float>::iterator fk;  // creat an iterator for avb vector named fk
+    for(fk=avb.begin();fk!=avb.end();fk++){  //print all the element of avb
+        cout<<*fk<<" ";
+    }
+
+    cout<<endl;
+
+    for(auto element:avb){   //auto initialize and print all the value of avb
+        cout<<element<<" ";
+    }
+
+    cout<<endl;
+
+    avb.pop_back();  // remove the last element from avb i.e 44353.8786
+
+    for(auto shit:avb){  // print the remaining element of avb
+        cout<<shit<<" ";
+    }
+
+    cout<<endl;
+
+    vector<float> afk(8, 77);    //creat an array of size 8 having all elements equal to 77.
+    for(auto sd:afk){
+        cout<<sd<<" ";   // print 77 8times.
+    }
+
+    swap(avb,afk); // swap the value of avb and afk totally.(data type must be similar)
+
+    cout<<endl;
+
+    afk.push_back(5879.3535); // adding a value to next index in afk
+
+    sort(afk.begin(),afk.end());  // sort the array avb
+    for(auto element:afk){
+        cout<<element<<" ";
+    }
+
+
+    return 0;
+
+}

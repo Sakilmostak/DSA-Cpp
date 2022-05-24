@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int a,b,c,d,e;
+	    cin>>a>>b>>c>>d>>e;
+	    int total=a+b+c;
+	    bool check=true;
+	    if(a<=e){
+	        if(total-a<=d && check==true){
+	            cout<<"YES"<<endl;
+	            check=false;
+	        }
+	    }
+	    if(b<=e){
+	        if(total-b<=d && check==true){
+	            cout<<"YES"<<endl;
+	            check=false;
+	        }
+	    }
+	    if(c<=e){
+	        if(total-c<=d && check==true){
+	            cout<<"YES"<<endl;
+	            check=false;
+	        }
+	    }
+	    
+	    if(check){
+	        cout<<"NO"<<endl;
+	    }
+	}
+}

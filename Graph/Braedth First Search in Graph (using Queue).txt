@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	int n; // no of vertices
+	int m; // no of edges
+
+	cin>>n>>m;
+
+	vector<vector<int>> adjList(n);  // Adjacency List representation of Graph
+
+	for(int i=0;i<m;i++){
+		int from, to;
+		cin>>from>>to;
+		adjList[from].push_back(to);
+	}
+
+
+	const int INF = 100000000;
+
+	vector<bool> visited(n, false);
+	vector<int> entryTime(n, INF);
+
+	int t=0;
+	int s=0;
+	visited[s]= true;
+	entryTime[s]=t;
+	t++;
+
+	queue<int> Q;
+	Q.push(s);
+
+	while(!Q.empty()){
+		s= Q.front();
+		Q.pop();
+		cout<<"We are at node = "<<s<<endl;
+		for(int adjNode: adjList[s]){
+			if(!visited[adjNode]){
+				visited[adjNode]=true;
+				Q.push(adjNode);
+			}
+		}
+	}
+	
+
+	return 0;
+}

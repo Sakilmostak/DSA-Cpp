@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+#define ull unsigned long long
+#define ll long long
+#define mod 1000000007
+#define endl "\n"
+using namespace std;
+
+// Morris Tarversal
+class TreeNode{
+    public:
+    int val;
+    TreeNode* right;
+    TreeNode* left;
+
+    TreeNode(int value){
+        val=value;
+        right=NULL;
+        left=NULL;
+    }
+
+};
+
+void inorderTraversal(TreeNode* root){
+    TreeNode* cur =root;
+    while(cur!=NULL){
+        if(cur->left==NULL){
+            cout<<cur->val<<endl;
+            cur=cur->right;
+        }
+        else{
+            TreeNode* rightMost=cur->left;
+            while(rightMost->right && rightMost->right!=cur){
+                rightMost=rightMost->right;
+            }
+
+            if(rightMost->right==NULL){
+                rightMost->right=cur;
+                cur=cur->left;
+            }
+            else{
+                cout<<cur->val<<endl;
+                rightMost->right=NULL;
+                cur=cur->right;
+            }
+        }
+    }
+}
+
+void PreorderTraversal(TreeNode* root){
+    TreeNode* cur =root;
+    while(cur!=NULL){
+        if(cur->left==NULL){
+            cout<<cur->val<<endl;
+            cur=cur->right;
+        }
+        else{
+            TreeNode* rightMost=cur->left;
+            while(rightMost->right && rightMost->right!=cur){
+                rightMost=rightMost->right;
+            }
+
+            if(rightMost->right==NULL){
+                cout<<cur->val<<endl;
+                rightMost->right=cur;
+                cur=cur->left;
+            }
+            else{
+                rightMost->right=NULL;
+                cur=cur->right;
+            }
+        }
+    }
+}
+
+

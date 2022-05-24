@@ -1,0 +1,47 @@
+#include<iostream>
+
+using namespace std;
+
+int lcm(int a, int b){
+	int  l=1;
+	while(true){
+		if(l%a==0 && l%b==0){
+			break;
+		}
+		l++;
+	}
+	return l;
+}
+
+int hcf(int a,int b){
+    int l=a+b;
+    while(l){
+        if(a%l==0 && b%l==0){
+            break;
+        }
+        l--;
+    }
+    return l;
+}
+    
+
+int main(){
+	int n;
+	cin>>n;
+	int ar[n];
+	for(int i=0;i<n;i++){
+		cin>>ar[i];
+	}
+	int k=ar[0];
+	int j=ar[0];
+	int count=n-1;
+	while(count){
+		k=lcm(ar[count],k);
+		j=hcf(ar[count],j);
+		count--;
+	}
+	cout<<k<<" "<<j<<endl;
+	return 0;
+
+
+}

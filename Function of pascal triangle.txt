@@ -1,0 +1,37 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int fac(int n){
+    long int sum=1;
+    for(long int i=1;i<=n;i++){
+        sum*=i;
+    }
+    
+    return sum;
+}
+int ncr(int m,int o){
+   int ans = fac(m)/(fac(o)*fac(m-o));
+   cout<<ans;
+   return ans;
+}
+int pasc(int q){
+    for(int i=0;i<q;i++){
+        for(int j=0;j<=i;j++){
+            ncr(i,j);
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+
+ int n,r;
+ cin>>n;
+ pasc(n);
+
+
+
+ 
+ return 0;  
+}

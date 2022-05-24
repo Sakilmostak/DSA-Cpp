@@ -1,0 +1,67 @@
+#include<iostream>
+#include<climits>  // for using INT_MIN
+
+using namespace std;
+
+struct node{
+	int data;
+	node* right;
+	node* left;
+	node(int val){
+		data=val;
+		right=NULL;
+		left=NULL;
+	}
+};
+
+int maxPathSumUtil(node* root, int &ans){
+	if(root==NULL){
+		return 0;
+	}
+
+	int left= maxPathSumUtil(root->left, ans);
+	int right= maxPathSumUtil(root->right, ans);
+
+	int nodeMax= max(max(root->data,root->data+left+right), max(left+root->data, right+root->data));
+	ans=max(ans, nodeMax);
+
+	int singlePathSum= max(root->data, max(left+root->data, right+root->data));
+	return singlePathSum;
+}
+
+int maxPathSum(node* root){
+	int ans= INT_MIN;
+
+	maxPathSumUtil(root, ans);
+
+	return ans;
+}
+	
+int main(){
+
+	/* 
+	       1
+	      / \
+	    -4   -6
+	    /   /  \
+	   4  10   10
+	  /
+	 5
+
+         Hence, max sum= 10 + -6 + 10 = 14(ans)
+
+	 */
+
+
+	struct node* root= new node(1);
+	root->left=new node(-4);
+	root->right=new node(3);
+	root->left->left=new node(4);
+	root->left->left->left=new node(5);
+	root->right->left= new node(10);
+	root->right->right= new node(9);
+
+	cout<<maxPathSum(root)<<endl;
+
+	return 0;
+}

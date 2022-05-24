@@ -1,0 +1,9 @@
+ans=cur.first+ans; is slow
+Why? Because you generate temporary strings of length 1, length 2, ..., length L
+=> 1 + 2 + 3 + ... + L = L * (L + 1) / 2 ~ L^2
+=> O(L^2), where L is the length of the final ans.
+
+ans.append(cur.second, cur.first) with one reverse(ans.begin(), ans.end()) is fast
+The best/fastest way to build ans is to append all chars from the stack ans.append(cur.second, cur.first)
+and do one reverse in the end reverse(ans.begin(), ans.end()).
+This will run in O(L) time and will not generate temporary strings.

@@ -1,0 +1,101 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+struct node{
+	int data;
+	node* next;
+
+	node(int val){
+		data=val;
+		next=NULL;
+	}
+};
+
+void printlist(node* head){
+	if(head==NULL){
+		return;
+	}
+
+	cout<<head->data<<" ";
+
+	printlist(head->next);
+}
+
+void insertAtTail(node* &head, int val){
+    node *n= new node(val);
+    if(head==NULL){
+        head=n;
+        return;
+    }
+
+    node* temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    temp->next=n;
+}
+
+int listsize(node* head){
+	int size=0;
+
+	node* temp=head;
+	while(temp!=NULL){
+		temp=temp->next;
+		size++;
+	}
+
+	return size;
+}
+
+bool checkPalindrome(node* head){
+	stack<int> st;
+
+	int s= listsize(head);
+	int ref=s;
+	if(s%2==0){
+		s=s/2;
+	}
+	else{
+		s=(s-1)/2;
+	}
+
+	for(int i=0;i<s;i++){
+		st.push(head->data);
+		head=head->next;
+	}
+
+	if(ref%2!=0){
+		head=head->next;
+	}
+
+	for(int i=0;i<s;i++){
+		if(head->data!=st.top()){
+			return false;
+		}
+		st.pop();
+		head=head->next;
+	}
+
+	return true;
+}
+
+int main(){
+	struct node* head= new node(1);
+	insertAtTail(head, 2);
+	insertAtTail(head, 3);
+	insertAtTail(head, 2);
+	insertAtTail(head, 1);
+	cout<<"The list is: ";
+	printlist(head);
+	cout<<endl;
+	
+	if(checkPalindrome(head)){
+		cout<<"The list is Palindrome"<<endl;
+	}
+	else{
+		cout<<"The list is NOT Palindrome"<<endl;
+	}
+	
+	return 0;
+}

@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+struct node{
+    int data;
+    node* right;
+    node* left;
+    node(int val){
+        data=val;
+        right=NULL;
+        left=NULL;
+    }
+};
+
+node* maketree(node* root, int n1, int n2){
+    if(root==NULL){
+        node* curr= new node(n1);
+        curr->left= new node(n2);
+        return curr;
+    }
+    if(root->data==n1){
+        if(root->left==NULL){
+            root->left= new node(n2);
+            return root;
+        }
+        root->right= new node(n2);
+        return root;
+    }
+
+    maketree(root->left,n1,n2);
+    maketree(root->right,n1,n2);
+}
+
+int main(){
+
+   struct node* root= NULL;
+   root= maketree(root, 1, 2);
+   maketree(root,2,3);
+   maketree(root,3,4);
+
+   return 0;
+   
+}

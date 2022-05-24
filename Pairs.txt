@@ -1,0 +1,13 @@
+#include<iostream>
+#include<algorithm>
+#include<string>
+#include<vector>
+using namespace std;
+
+int main(){
+     // Forming a pair
+    pair <int, char> pt; //creats a pair with first element as int and second element as char
+    pt.first=8; // initialize the first value of pair pt
+    pt.second='s'; // initiallize the second value of pair pt
+           // The end
+}

@@ -1,0 +1,51 @@
+#include<iostream>
+
+using namespace std;
+
+int feasiblity(int board[], int n, int limit){
+	int sum=0,painters=1;
+	for(int i=0;i<n;i++){
+		sum+= board[i];
+		if(sum>limit){
+			sum=board[i];
+			painters++;
+		}
+	}
+
+	return painters;
+}
+
+int paintersPartition(int board[], int n, int m){
+	int totalLength=0,k=0;
+	for(int i=0;i<n;i++){
+		k= max(k, board[i]);
+		totalLength+= board[i];
+	}
+
+	int low=k;
+	int high=totalLength;
+
+	while(low<high){
+		int mid=(low+high)/2;
+		int painters= feasiblity(board, n, mid);
+		if(painters<=m){
+			high=mid;
+		}
+		else{
+			low=mid+1;
+		}
+	}
+
+	return low;
+}
+
+int main(){
+	int board[]= {15,20,35,48};
+	int n=4;
+	int m=2;
+
+	cout<<"Minimum time taken to paint all boards is "<<paintersPartition(board, n, m)<<endl;
+
+	return 0;
+
+}

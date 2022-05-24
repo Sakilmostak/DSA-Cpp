@@ -1,0 +1,43 @@
+//USING BUFFER TO GIVE OUTPUT TO A FILE.
+#include<iostream>
+#inlcude<fstream>
+using namespace std;
+
+int main()
+{
+    fstream file;
+    file.open("cout.txt", ios::out);
+    string line;
+ 
+    // Backup streambuffers of  cout
+    streambuf* stream_buffer_cout = cout.rdbuf();
+    streambuf* stream_buffer_cin = cin.rdbuf();
+ 
+    // Get the streambuffer of the file
+    streambuf* stream_buffer_file = file.rdbuf();
+ 
+    // Redirect cout to file
+    cout.rdbuf(stream_buffer_file);
+ 
+    cout << "This line written to file" << endl;
+ 
+    // Redirect cout back to screen
+    cout.rdbuf(stream_buffer_cout);
+    cout << "This line is written to screen" << endl;
+ 
+    file.close();
+    return 0;
+}
+
+
+
+HoW TO CLEAR BUFFER:
+While taking multiple input consecutively, error occurs due to remaining buffer which can be resolved by the following 
+techni1que
+
+1) using "cin.ignore(numeric_limits<streamsize>::max(),'\n');" after the first input.
+    Note: #include<ios> for streamsize and #include<limits> for numeric limits must be included.
+
+2) using "cin.sync();" after the first input.
+
+3) using "cin>>ws;" after the first input.

@@ -1,0 +1,113 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+  char ans, ans1, ans2;
+  cout<<"Are you a moron?"<<endl;
+  cout<<"a)Yes b)No c)Well yes, but actually no. d)Hard to decide."<<endl;
+
+  cin>>ans;
+
+  switch(ans)
+  {
+      case 'a':
+      cout<<"Sol. Damn, you know yourself"<<endl;
+      cout<<" "<<endl;
+      cout<<"Did you fart?"<<endl;
+      cout<<"a)yes b)no c)something something d)alien did"<<endl;
+      break;
+
+      case 'b':
+      cout<<"Sol. You sucks at judgement"<<endl;
+      cout<<" "<<endl;
+      cout<<"Did you fart?"<<endl;
+      cout<<"a)yes b)no c)something something d)alien did"<<endl;
+      break;
+
+
+      case 'c':
+    cout<<"Sol. Ah, I see you a man of culture as well!"<<endl;
+     cout<<" "<<endl;
+      cout<<"Did you fart?"<<endl;
+      cout<<"a)yes b)no c)something something d)alien did"<<endl;
+      break;
+
+
+      case 'd':
+      cout<<"Sol. You actually are a moron"<<endl;
+      cout<<" "<<endl;
+      cout<<"Did you fart?"<<endl;
+      cout<<"a)yes b)no c)something something d)alien did"<<endl;
+       break;
+
+  }
+  cin>>ans1;
+  switch(ans1){
+
+    case 'a':
+     cout<<"Sol. You are a honest person!"<<endl;
+     cout<<" "<<endl;
+      cout<<"Whats your favorite color?"<<endl;
+      cout<<"a)Red b)Blue c)Black d)I don't know"<<endl;
+      break;
+
+     case 'b':
+     cout<<"Sol. You are a bad liar!"<<endl;
+    cout<<" "<<endl;
+      cout<<"Whats your favorite color?"<<endl;
+      cout<<"a)Red b)Blue c)Black d)I don't know"<<endl;
+      break;
+
+     case 'c':
+     cout<<"Sol. Don't ever say that to your girlfriend"<<endl;
+    cout<<" "<<endl;
+      cout<<"Whats your favorite color?"<<endl;
+      cout<<"a)Red b)Blue c)Grey d)I don't know"<<endl;
+      break;
+
+     case 'd':
+     cout<<"Sol. ....and nobody asked that!"<<endl;
+     cout<<" "<<endl;
+      cout<<"Whats your favorite color?"<<endl;
+      cout<<"a)Red b)Blue c)Black d)I don't know"<<endl;
+      break;
+
+    
+  }
+cin>>ans2;
+
+switch(ans2){
+
+ case 'a':
+     cout<<"Sol. Indeed, you are a psychopath"<<endl;
+     cout<<" "<<endl;
+     cout<<"The end, hope your time is ruined...."<<endl;
+     break;
+
+ case 'b':
+     cout<<"Sol. Congrats, you are boring!"<<endl;
+     cout<<" "<<endl;
+     cout<<"The end, hope your time is ruined...."<<endl; 
+      break;
+
+ case 'c':
+     cout<<"Sol. Are you even human? "<<endl;
+     cout<<" "<<endl;
+     cout<<"The end, hope your time is ruined...."<<endl;
+      break;
+
+
+ case 'd':
+     cout<<"Sol. Yeah, you are not allowed to know."<<endl;
+     cout<<" "<<endl;
+     cout<<"The end, hope your time is ruined...."<<endl;
+      break;
+}
+ 
+  
+
+   return 0;
+
+
+}
